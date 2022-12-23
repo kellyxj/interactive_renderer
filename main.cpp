@@ -1,4 +1,4 @@
-#include "SDLBox.hpp"
+#include "wrappers/SDLBox.hpp"
 #include <stdio.h>
 #include <string>
 

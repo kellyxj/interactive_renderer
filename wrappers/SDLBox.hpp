@@ -1,7 +1,7 @@
 #ifndef __SDLBOX_H__
 #define __SDLBOX_H__
 
-#include <SDL2/SDL.h>
+#include "window.hpp"
 #include <GL/glew.h>
 #include <SDL2/SDL_opengl.h>
 
