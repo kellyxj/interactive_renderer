@@ -1,5 +1,5 @@
 #include "SDLBox.hpp"
 
-SDLBox::init() {
+bool SDLBox::init() {
     
 }
