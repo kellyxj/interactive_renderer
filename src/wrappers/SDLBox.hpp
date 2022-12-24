@@ -10,14 +10,14 @@ public:
     bool renderOn;
 
     SDLBox() {
-        window = NULL;
-        renderOn = true;
+        window.init();
+        init();
     }
     bool init();
     void render();
 
 private:
-    SDL_Window* window;
-}
+    Window window;
+};
 
 #endif

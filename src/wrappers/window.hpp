@@ -15,4 +15,4 @@ private:
     bool keyboardFocus;
     bool fullscreen;
     bool minimized;
-}
+};
