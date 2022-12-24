@@ -8,7 +8,7 @@ SRC_DIR = ./src/
 OBJ_DIR = ./obj/
 BIN_DIR = ./bin/
 
-SRC_NAMES = main.cpp wrappers/SDLBox.cpp
+SRC_NAMES = wrappers/window.cpp wrappers/SDLBox.cpp wrappers/runner.cpp main.cpp 
 
 SOURCES = $(foreach source_name, $(SRC_NAMES), $(SRC_DIR)$(source_name))
 OBJECTS = $(patsubst $(SRC_DIR)%.cpp, $(OBJ_DIR)%.o, $(SOURCES))
@@ -19,10 +19,10 @@ EXE = $(BIN_DIR)$(OBJ_NAME)
 all : $(EXE)
 
 $(EXE) : $(OBJECTS)
-	$(CXX) $^ -o $@
+	$(CXX) $(COMPILER_FLAGS) $^ -o $@ $(LINKER_FLAGS)
 
 $(OBJ_DIR)%.o : $(SRC_DIR)%.cpp
-	$(CXX) $(COMPILER_FLAGS) $(LINKER_FLAGS) $< -c -o $@
+	$(CXX) $< -c -o $@
 
 .PHONY: clean
 clean: 

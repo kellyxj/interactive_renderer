@@ -9,10 +9,7 @@ class SDLBox {
 public:
     bool renderOn;
 
-    SDLBox() {
-        window.init();
-        init();
-    }
+    SDLBox();
     bool init();
     void render();
 
