@@ -29,3 +29,12 @@ void Geometry::scale(vec4 & v){
 
     normalToWorld = worldToModel.transpose();
 }
+
+void Geometry::drawPreview() {
+    if(renderOn && vboBox.initialized) {
+            vboBox.switchToMe();
+            vboBox.adjust();
+            vboBox.reload();
+            vboBox.draw();
+    }
+}

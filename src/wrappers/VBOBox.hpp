@@ -1,16 +1,22 @@
 #include <GL/glew.h>
+#include <SDL2/SDL.h>
 #include <SDL2/SDL_opengl.h>
+#include <vector>
+#include <string>
+#include "../utils/logger.hpp"
 
 class VBOBox {
 public:
+    bool initialized;
     VBOBox();
-    void init();
+    bool init(SDL_GLContext* _context, std::vector<double> & vboContents, std::string _vertexShaderSource, std::string _fragmentShaderSource);
     void switchToMe();
-    void isReady();
-    void adjust();
+    bool isReady();
+    void adjust(); //Adjust values of uniforms. Input must match shader program
     void draw();
     void reload();
 
 private:
-
+    SDL_GLContext* context;
+    GLuint programID;
 };

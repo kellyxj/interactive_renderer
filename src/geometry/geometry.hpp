@@ -14,8 +14,9 @@ public:
     mat4 normalToWorld;
 
     Material* material;
-    VBOBox VBOBox;
+    VBOBox vboBox;
 
+    bool renderOn = true;
     bool isLight = false;
     double brightness;
 
@@ -36,7 +37,7 @@ public:
     virtual ~Geometry() {}
     virtual int getType() = 0;
 
-    virtual void drawPreview() = 0;
+    void drawPreview();
 };
 
 #endif
