@@ -29,6 +29,7 @@ void Runner::run() {
 				quit = true;
 			}
         }
+        //sdl.render();
     }
     close();
 }

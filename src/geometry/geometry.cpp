@@ -32,9 +32,9 @@ void Geometry::scale(vec4 & v){
 
 void Geometry::drawPreview() {
     if(renderOn && vboBox.initialized) {
-            vboBox.switchToMe();
-            vboBox.adjust();
-            vboBox.reload();
-            vboBox.draw();
+        vboBox.switchToMe();
+        vboBox.adjust();
+        vboBox.reload();
+        vboBox.draw();
     }
 }

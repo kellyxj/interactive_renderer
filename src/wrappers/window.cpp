@@ -2,6 +2,7 @@
 Window::Window() {
     width = 640;
     height = 480;
+    activeCam = 0;
 }
 
 bool Window::init() {
@@ -19,6 +20,10 @@ bool Window::init() {
 		}
     }
     return true;
+}
+
+void Window::render() {
+    renderer->takeAPicture(scene, activeCam);
 }
 
 void Window::free() {

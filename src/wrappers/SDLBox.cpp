@@ -22,11 +22,14 @@ bool SDLBox::init() {
 	{
 		printf( "Warning: Unable to set VSync! SDL Error: %s\n", SDL_GetError() );
 	}
+	renderOn = success;
     return success;
 }
 
 void SDLBox::render() {
-
+	if(renderOn) {
+		window.render();
+	}
 }
 
 void SDLBox::free() {

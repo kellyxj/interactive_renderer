@@ -58,6 +58,8 @@ bool VBOBox::init(SDL_GLContext* _context, std::vector<double> & vboContents, st
             }
         }
     }
+
+    initialized = success;
     return success;
 }
 
