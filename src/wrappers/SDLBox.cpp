@@ -1,6 +1,6 @@
 #include "SDLBox.hpp"
 SDLBox::SDLBox() {
-    
+
 }
 
 bool SDLBox::init() {
@@ -23,4 +23,12 @@ bool SDLBox::init() {
 		printf( "Warning: Unable to set VSync! SDL Error: %s\n", SDL_GetError() );
 	}
     return success;
+}
+
+void SDLBox::render() {
+
+}
+
+void SDLBox::free() {
+    window.free();
 }

@@ -20,3 +20,9 @@ bool Window::init() {
     }
     return true;
 }
+
+void Window::free() {
+    if(window != NULL) {
+        SDL_DestroyWindow(window);
+    }
+}

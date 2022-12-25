@@ -12,6 +12,7 @@ public:
     SDLBox();
     bool init();
     void render();
+    void free();
 
 private:
     Window window;

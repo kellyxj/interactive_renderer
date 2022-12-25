@@ -30,8 +30,10 @@ void Runner::run() {
 			}
         }
     }
+    close();
 }
 
 void Runner::close() {
-
+    sdl.free();
+    SDL_Quit();
 }

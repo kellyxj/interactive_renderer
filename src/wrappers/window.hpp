@@ -4,7 +4,7 @@ class Window {
 public:
     Window();
     bool init();
-    SDL_Renderer* createRenderer();
+    void free();
 
 private:
     SDL_Window* window;
