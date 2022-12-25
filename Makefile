@@ -8,7 +8,10 @@ SRC_DIR = ./src/
 OBJ_DIR = ./obj/
 BIN_DIR = ./bin/
 
-SRC_NAMES = wrappers/window.cpp wrappers/SDLBox.cpp wrappers/runner.cpp main.cpp 
+SRC_NAMES = wrappers/window.cpp wrappers/SDLBox.cpp wrappers/runner.cpp wrappers/VBOBox.cpp\
+primitives/vec4.cpp primitives/mat4.cpp\
+geometry/geometry.cpp\
+main.cpp 
 
 SOURCES = $(foreach source_name, $(SRC_NAMES), $(SRC_DIR)$(source_name))
 OBJECTS = $(patsubst $(SRC_DIR)%.cpp, $(OBJ_DIR)%.o, $(SOURCES))

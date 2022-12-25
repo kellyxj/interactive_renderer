@@ -2,7 +2,8 @@
 #define __HIT_H__
 
 #include "ray.hpp"
-#include "materials/material.hpp"
+#include "../materials/material.hpp"
+#include "color.hpp"
 
 class Hit {
 public:
