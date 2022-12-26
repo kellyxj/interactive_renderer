@@ -1,5 +1,5 @@
 #include "renderer.hpp"
 
-class MeshRenderer : Renderer {
+class MeshRenderer : public Renderer {
     void takeAPicture(Scene & scene, int camIndex);
 };

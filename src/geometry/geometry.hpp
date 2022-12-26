@@ -6,6 +6,7 @@
 #include "../primitives/hit.hpp"
 #include "../primitives/vec4.hpp"
 #include "../wrappers/VBOBox.hpp"
+#include "../utils/shaderLoader.hpp"
 
 class Geometry {
 public:
@@ -35,7 +36,6 @@ public:
 
     virtual Hit trace(ray & inRay) = 0;
     virtual ~Geometry() {}
-    virtual int getType() = 0;
     
     virtual void initVbo(SDL_GLContext context) = 0;
     void drawPreview();

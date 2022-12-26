@@ -12,7 +12,7 @@ SRC_NAMES = wrappers/window.cpp wrappers/SDLBox.cpp wrappers/runner.cpp wrappers
 primitives/vec4.cpp primitives/mat4.cpp\
 geometry/geometry.cpp geometry/plane.cpp geometry/sphere.cpp\
 renderers/meshRenderer.cpp\
-utils/logger.cpp\
+utils/logger.cpp utils/shaderLoader.cpp\
 scene.cpp main.cpp
 
 SOURCES = $(foreach source_name, $(SRC_NAMES), $(SRC_DIR)$(source_name))

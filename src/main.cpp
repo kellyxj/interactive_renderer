@@ -6,16 +6,20 @@
 
 int main( int argc, char* args[] ) {
     Runner runner;
-    Scene scene;
-    //add stuff to scene here
-    //scene.items.push_back(...)
-    //scene.cameras.push_back(...)
+    runner.init();
 
     MeshRenderer previewRenderer;
     runner.setRenderer((Renderer*)(&previewRenderer));
+
+    Scene scene;
+    Plane plane;
+
+    scene.items.push_back(&plane);
+    scene.initVbos();
+    //scene.cameras.push_back(...)
     runner.setScene(scene);
+
     
-    runner.init();
     runner.run();
     return 0;
 }
