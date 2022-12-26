@@ -5,6 +5,14 @@ Window::Window() {
     activeCam = 0;
 }
 
+void Window::setRenderer(Renderer* _renderer) {
+    renderer = _renderer;
+}
+
+void Window::setScene(Scene _scene) {
+    scene = _scene;
+}
+
 bool Window::init() {
     window = SDL_CreateWindow("window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
     if(window == NULL) {
@@ -19,6 +27,8 @@ bool Window::init() {
 			return false;
 		}
     }
+    scene.context = context;
+    scene.initVbos();
     return true;
 }
 

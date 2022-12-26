@@ -3,6 +3,14 @@ SDLBox::SDLBox() {
 
 }
 
+void SDLBox::setRenderer(Renderer* renderer) {
+	window.setRenderer(renderer);
+}
+
+void SDLBox::setScene(Scene scene) {
+	window.setScene(scene);
+}
+
 bool SDLBox::init() {
     bool success = true;
 

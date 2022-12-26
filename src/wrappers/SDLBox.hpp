@@ -4,13 +4,14 @@
 #include "window.hpp"
 #include <GL/glew.h>
 #include <SDL2/SDL_opengl.h>
-#include "../renderers/renderer.hpp"
 
 class SDLBox {
 public:
     bool renderOn;
 
     SDLBox();
+    void setRenderer(Renderer* renderer);
+    void setScene(Scene scene);
     bool init();
     void render();
     void free();

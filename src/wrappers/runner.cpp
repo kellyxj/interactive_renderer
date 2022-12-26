@@ -4,6 +4,14 @@ Runner::Runner() {
 
 }
 
+void Runner::setRenderer(Renderer* renderer) {
+    sdl.setRenderer(renderer);
+}
+
+void Runner::setScene(Scene scene) {
+    sdl.setScene(scene);
+}
+
 bool Runner::init() {
     bool success = true;
 
@@ -14,7 +22,6 @@ bool Runner::init() {
 	}
     else {
         success = sdl.init();
-
     }
     return success;
 }

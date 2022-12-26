@@ -36,7 +36,8 @@ public:
     virtual Hit trace(ray & inRay) = 0;
     virtual ~Geometry() {}
     virtual int getType() = 0;
-
+    
+    virtual void initVbo(SDL_GLContext context) = 0;
     void drawPreview();
 };
 
