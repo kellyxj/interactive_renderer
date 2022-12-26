@@ -18,7 +18,6 @@ int main( int argc, char* args[] ) {
     scene.initVbos();
     //scene.cameras.push_back(...)
     runner.setScene(scene);
-
     
     runner.run();
     return 0;

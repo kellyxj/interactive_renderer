@@ -54,7 +54,7 @@ bool VBOBox::init(SDL_GLContext _context, std::vector<double> & vboContents, std
 				success = false;
 			}
             else {
-                //get attribute locations and bind buffers
+                printUniformsAndAttributes(programID);
             }
         }
     }

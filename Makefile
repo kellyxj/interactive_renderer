@@ -8,6 +8,7 @@ SRC_DIR = ./src/
 OBJ_DIR = ./obj/
 BIN_DIR = ./bin/
 
+#TODO: rewrite this so I don't have to type these manually
 SRC_NAMES = wrappers/window.cpp wrappers/SDLBox.cpp wrappers/runner.cpp wrappers/VBOBox.cpp\
 primitives/vec4.cpp primitives/mat4.cpp\
 geometry/geometry.cpp geometry/plane.cpp geometry/sphere.cpp\

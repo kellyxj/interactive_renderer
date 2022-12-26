@@ -8,5 +8,6 @@
 
 void printProgramLog( GLuint program );
 void printShaderLog(GLuint shader);
+void printUniformsAndAttributes(GLuint program);
 
 #endif
