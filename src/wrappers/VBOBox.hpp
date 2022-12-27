@@ -12,7 +12,7 @@ class VBOBox {
 public:
     bool initialized;
     VBOBox();
-    bool init(SDL_GLContext _context, std::vector<double> & vboContents, std::string _vertexShaderSource, std::string _fragmentShaderSource);
+    bool init(SDL_GLContext _context, std::vector<float> & vboContents, std::string _vertexShaderSource, std::string _fragmentShaderSource);
     void switchToMe();
     bool isReady();
     void adjust(); //Adjust values of uniforms. Input must match shader program

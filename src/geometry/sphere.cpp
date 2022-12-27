@@ -18,19 +18,19 @@ Hit Sphere::trace(ray & inRay) {
     vec4 center(0,0,0,1);
     vec4 r2s = center-origin;
 
-    double L2 = r2s.length();
-    double tcaS = dir.dot(r2s);
+    float L2 = r2s.length();
+    float tcaS = dir.dot(r2s);
 
     Hit hit;
     //rays originating inside sphere
     if(L2 <= 1) {
-        double DL2 = dir.length();
+        float DL2 = dir.length();
 
-        double tca2 = tcaS * tcaS/DL2;
-        double LM2 = L2 - tca2;
+        float tca2 = tcaS * tcaS/DL2;
+        float LM2 = L2 - tca2;
 
-        double L2hc = 1-LM2;
-        double t0 = tcaS/DL2 + sqrt(L2hc/DL2);
+        float L2hc = 1-LM2;
+        float t0 = tcaS/DL2 + sqrt(L2hc/DL2);
 
         hit.t = t0;
         hit.pos = inRay.origin + (inRay.direction * t0);
@@ -41,15 +41,15 @@ Hit Sphere::trace(ray & inRay) {
     }
     //if tcaS < 0, sphere is behind the camera
     else if(tcaS >= 0) {
-        double DL2 = dir.length();
+        float DL2 = dir.length();
 
-        double tca2 = tcaS * tcaS/DL2;
-        double LM2 = L2 - tca2;
+        float tca2 = tcaS * tcaS/DL2;
+        float LM2 = L2 - tca2;
 
         if(LM2 <= 1) {
-            double L2hc = 1-LM2;
-            double t0 = tcaS/DL2 - sqrt(L2hc/DL2);
-            double t1 = tcaS/DL2 + sqrt(L2hc/DL2);
+            float L2hc = 1-LM2;
+            float t0 = tcaS/DL2 - sqrt(L2hc/DL2);
+            float t1 = tcaS/DL2 + sqrt(L2hc/DL2);
 
             hit.t = t0;
             hit.pos = inRay.origin + (inRay.direction * t0);
@@ -63,7 +63,7 @@ Hit Sphere::trace(ray & inRay) {
 }
 
 void Sphere::initVbo(SDL_GLContext context) {
-    std::vector<double> vboContents;
+    std::vector<float> vboContents;
     std::string vertexShaderSource = loadShaderFromFile("../../data/shaders/wireframe.vert");
     std::string fragmentShaderSource = loadShaderFromFile("../../data/shaders/wireframe.frag");
     vboBox.init(context, vboContents, vertexShaderSource, fragmentShaderSource);

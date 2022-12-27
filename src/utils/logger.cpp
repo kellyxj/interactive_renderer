@@ -62,33 +62,33 @@ void printShaderLog(GLuint shader) {
 
 void printUniformsAndAttributes(GLuint program) {
 	//get attribute locations and bind buffers
-        GLint i;
-		GLint count;
+	GLint i;
+	GLint count;
 
-		GLint size; // size of the variable
-		GLenum type; // type of the variable (float, vec3 or mat4, etc)
+	GLint size; // size of the variable
+	GLenum type; // type of the variable (float, vec3 or mat4, etc)
 
-		const GLsizei bufSize = 16; // maximum name length
-		GLchar name[bufSize]; // variable name in GLSL
-		GLsizei length; // name length
+	const GLsizei bufSize = 16; // maximum name length
+	GLchar name[bufSize]; // variable name in GLSL
+	GLsizei length; // name length
 
-		glGetProgramiv(program, GL_ACTIVE_ATTRIBUTES, &count);
-		printf("Active Attributes: %d\n", count);
+	glGetProgramiv(program, GL_ACTIVE_ATTRIBUTES, &count);
+	printf("Active Attributes: %d\n", count);
 
-		for (int i = 0; i < count; i++)
-		{
-			glGetActiveAttrib(program, (GLuint)i, bufSize, &length, &size, &type, name);
+	for (int i = 0; i < count; i++)
+	{
+		glGetActiveAttrib(program, (GLuint)i, bufSize, &length, &size, &type, name);
 
-			printf("Attribute #%d Type: %u Name: %s\n", i, type, name);
-		}
+		printf("Attribute #%d Type: %u Name: %s\n", i, type, name);
+	}
 
-		glGetProgramiv(program, GL_ACTIVE_UNIFORMS, &count);
-		printf("Active Uniforms: %d\n", count);
+	glGetProgramiv(program, GL_ACTIVE_UNIFORMS, &count);
+	printf("Active Uniforms: %d\n", count);
 
-		for (i = 0; i < count; i++)
-		{
-			glGetActiveUniform(program, (GLuint)i, bufSize, &length, &size, &type, name);
+	for (i = 0; i < count; i++)
+	{
+		glGetActiveUniform(program, (GLuint)i, bufSize, &length, &size, &type, name);
 
-			printf("Uniform #%d Type: %u Name: %s\n", i, type, name);
-		}
+		printf("Uniform #%d Type: %u Name: %s\n", i, type, name);
+	}
 }

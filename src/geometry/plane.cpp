@@ -14,7 +14,7 @@ Hit Plane::trace(ray & inRay) {
 
     ray ray(origin, dir);
 
-    double t0 = -origin.z/dir.z;
+    float t0 = -origin.z/dir.z;
     Hit hit;
     if(t0 >= 0) {
         hit.t = t0;
@@ -28,7 +28,7 @@ Hit Plane::trace(ray & inRay) {
 }
 
 void Plane::initVbo(SDL_GLContext context) {
-    std::vector<double> vboContents;
+    std::vector<float> vboContents;
     std::string vertexShaderSource = loadShaderFromFile("data/shaders/wireframe.vert");
     std::string fragmentShaderSource = loadShaderFromFile("data/shaders/wireframe.frag");
     vboBox.init(context, vboContents, vertexShaderSource, fragmentShaderSource);

@@ -4,7 +4,7 @@ VBOBox::VBOBox() {
     initialized = false;
 }
 
-bool VBOBox::init(SDL_GLContext _context, std::vector<double> & vboContents, std::string _vertexShaderSource, std::string _fragmentShaderSource) {
+bool VBOBox::init(SDL_GLContext _context, std::vector<float> & vboContents, std::string _vertexShaderSource, std::string _fragmentShaderSource) {
     bool success = true;
     
     context = _context;
