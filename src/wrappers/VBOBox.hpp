@@ -2,11 +2,16 @@
 #define __VBOBOX_H__
 
 #include <GL/glew.h>
+#include <GL/gl.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_opengl.h>
+
 #include <vector>
 #include <string>
 #include "../utils/logger.hpp"
+#include "../defines.hpp"
+#include "glAttribute.hpp"
+#include "glUniform.hpp"
 
 class VBOBox {
 public:
@@ -22,6 +27,10 @@ public:
 private:
     SDL_GLContext context;
     GLuint programID;
+    GLuint vboLocation;
+
+    std::vector<GLAttribute> attributes;
+    std::vector<GLUniform> uniforms;
 };
 
 #endif
