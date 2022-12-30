@@ -12,10 +12,13 @@
 #include "../defines.hpp"
 #include "glAttribute.hpp"
 #include "glUniform.hpp"
+#include "../primitives/mat4.hpp"
 
 class VBOBox {
 public:
     bool initialized;
+    int nVerts;
+
     VBOBox();
     bool init(SDL_GLContext _context, std::vector<float> & vboContents, std::string _vertexShaderSource, std::string _fragmentShaderSource);
     void switchToMe();

@@ -79,7 +79,7 @@ void printUniformsAndAttributes(GLuint program) {
 	{
 		glGetActiveAttrib(program, (GLuint)i, bufSize, &length, &size, &type, name);
 
-		printf("Attribute #%d Type: %u Name: %s\n", i, type, name);
+		printf("Attribute #%d Type: %u Name: %s Size: %d\n", i, type, name, size);
 	}
 
 	glGetProgramiv(program, GL_ACTIVE_UNIFORMS, &count);
@@ -89,6 +89,6 @@ void printUniformsAndAttributes(GLuint program) {
 	{
 		glGetActiveUniform(program, (GLuint)i, bufSize, &length, &size, &type, name);
 
-		printf("Uniform #%d Type: %u Name: %s\n", i, type, name);
+		printf("Uniform #%d Type: %u Name: %s Size: %d\n", i, type, name, size);
 	}
 }

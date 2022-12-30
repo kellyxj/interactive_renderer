@@ -54,6 +54,7 @@ bool VBOBox::init(SDL_GLContext _context, std::vector<float> & vboContents, std:
 				success = false;
 			}
             else {
+                printUniformsAndAttributes(programID);
                 GLint count;
                 glGetProgramiv(programID, GL_ACTIVE_ATTRIBUTES, &count);
                 GLsizei name_length;
@@ -73,20 +74,34 @@ bool VBOBox::init(SDL_GLContext _context, std::vector<float> & vboContents, std:
                 glGenBuffers( 1, &vboLocation );
 				glBindBuffer( GL_ARRAY_BUFFER, vboLocation );
 
-                int vertexBufferSize = vboContents.size();
-                GLfloat vertexData[vertexBufferSize];
+                nVerts = vboContents.size();
+                GLfloat vertexData[nVerts];
                 std::copy(vboContents.begin(), vboContents.end(), vertexData);
-				glBufferData( GL_ARRAY_BUFFER, vertexBufferSize * sizeof(GLfloat), vertexData, GL_STATIC_DRAW );
+
+				glBufferData( GL_ARRAY_BUFFER, nVerts * sizeof(GLfloat), vertexData, GL_STATIC_DRAW );
             }
         }
     }
-
     initialized = success;
     return success;
 }
 
 void VBOBox::switchToMe() {
-    
+    if(initialized) {
+        glUseProgram(programID);
+        for(GLAttribute attribute : attributes) {
+            glEnableVertexAttribArray(attribute.index);
+        }
+        glBindBuffer( GL_ARRAY_BUFFER, vboLocation );
+
+        int currentOffset = 0;
+        for(GLAttribute attribute : attributes) {
+            //currently hard coding sizeof vec4
+            //TODO: create table mapping GLenum types to size in bytes
+            glVertexAttribPointer(attribute.index, attribute.size, attribute.type, false, 4*sizeof(GLfloat), (void *)currentOffset);
+            currentOffset += 4*sizeof(GLfloat);
+        }
+    }
 }
 
 bool VBOBox::isReady() {
@@ -94,11 +109,22 @@ bool VBOBox::isReady() {
 }
 
 void VBOBox::adjust() {
-    
+    //TODO: uniforms are hard coded. Refactor to allow any number of uniforms
+    mat4 modelMatrix;
+    mat4 mvpMatrix;
+
+    modelMatrix.setIdentity();
+    mvpMatrix.setIdentity();
+
+    GLfloat * modelMatrixData = (GLfloat*)modelMatrix.entries;
+    GLfloat * mvpMatrixData = (GLfloat*)mvpMatrix.entries;
+
+    glUniformMatrix4fv(0, 1, false, modelMatrixData);
+    glUniformMatrix4fv(1, 1, false, mvpMatrixData);
 }
 
 void VBOBox::draw() {
-    
+    glDrawArrays(GL_POINTS, 0, nVerts);
 }
 
 void VBOBox::reload() {

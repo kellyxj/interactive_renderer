@@ -36,7 +36,7 @@ void Runner::run() {
 				quit = true;
 			}
         }
-        //sdl.render();
+        sdl.render();
     }
     close();
 }
